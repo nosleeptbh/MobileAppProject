@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="warning">Contact Us</ion-title>
+    <ion-buttons slot="start"><!--Back button-->
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="hero is-primary is-bold">
+    <div class="hero-body">
+      <div >
+        <h1 class="title">If you have any querys or feedback. Please contact us</h1>
+      </div>
+    </div>
+  </section>
+
+  <form >
+    <!-- name -->
+    <div>
+      <ion-input name="name"  placeholder="Your First Name" [(ngModel)]="name"></ion-input>
+    </div>
+    
+    <!-- email -->
+    <div>
+      <ion-input name="email" placeholder="Your Email" [(ngModel)]="email"></ion-input>
+    </div>
+    
+    <!-- message -->
+    <div>
+      <ion-textarea name="message" placeholder="What's on your mind?" [(ngModel)]="message"></ion-textarea>
+    </div>
+    
+    <!--Saves details in local Storage-->
+    <ion-button type="submit" color="warning" fill="outline" (click)="saveForm()" >Submit</ion-button>
+    
+  </form>
+</ion-content>
+

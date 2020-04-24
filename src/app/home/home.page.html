@@ -1,20 +1,55 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title class="ion-text-center" color="warning">Weather App</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div><!--Navigation Tab Bar-->
+    <ion-row>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+          <ion-tab-button [routerLink]="['/page2']"><!--Blank Page-->
+            <ion-icon name="heart-outline" color="warning"></ion-icon>
+          </ion-tab-button>
+
+          <ion-tab-button [routerLink]="['/page3']"> <!--Information Page-->
+            <ion-icon name="globe" color="warning"></ion-icon>
+          </ion-tab-button>
+
+          <ion-tab-button [routerLink]="['/page4']"> <!--Contact Us Page-->
+            <ion-icon name="information" color="warning"></ion-icon>
+          </ion-tab-button>
+
+        </ion-tab-bar>
+      </ion-tabs>
+    </ion-row>
+  </div>
+
+    <div><!--Search bar for City-->
+      <ion-input [(ngModel)]="searchCity" [(ngModel)]="savedCity" placeholder="Enter City Here"></ion-input> <!--Enter City name -->
+      <ion-button class="button" color="warning" fill="outline"(click)="performSearch()" (click)="hidden = true">Search City</ion-button> <!--Search City and reveals main body-->
+      <ion-button class="button1" color="warning" fill="outline" (click)="onSaveCity()">Save Favourite city</ion-button>
+    </div>
+    
+  <div *ngIf="hidden"><!--Main body of weather which is hidden on opening of the app-->
+    <ion-row>
+      <ion-col>
+        <img src="{{weatherObject.image}}" height="200" width="200"> <!--Displays the image from the weather API. Image changes depending on weather -->
+      </ion-col>
+
+      <ion-col>
+        <h1>{{weatherObject.cityname}}, {{weatherObject.countryID}} </h1> <!--Displays searched City and Country ID-->
+        <h1>{{weatherObject.temperature}}°C</h1><!--Displays the current temperature from the API-->
+         <h3> Feels like: {{weatherObject.feelslike}}°C</h3><!--Displays weather description-->
+
+        <div *ngFor="let data of WeatherData"><!--For loop that loops through the contents of the array 'weather' from API-->
+          <h3> {{data.description}}</h3><!--Displays weather description-->
+        </div>
+
+        <h3> Wind speeds: {{weatherObject.windspeed}} km/h</h3>  <!--Displays current wind speeds-->
+      </ion-col>
+    </ion-row>
   </div>
 </ion-content>

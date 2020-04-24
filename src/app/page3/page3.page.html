@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title color="warning">While you're here</ion-title>
+    <ion-buttons slot="start"><!--Back button-->
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="test">Global Climate Change</ion-card-title>
+    </ion-card-header>
+
+    <div><img src="assets/images/ourplanet.png"></div>
+    
+    <ion-card-content>
+      As the creator of this weather app I feel I must advocate the effects and worry of global warming.
+      The Earth is warming up, and humans are at least partially to blame. The causes, effects, 
+      and complexities of global warming are important to understand so that we can fight for the health of our planet.
+      These links below contain useful information on climate change
+    </ion-card-content>
+    
+    <ion-button (click)="performBrowser()" class="button1">NASA</ion-button><!--InAppBrowser Plugin to NASA global warming page-->
+    <ion-button (click)="performBrowser2()"class="button2">UN</ion-button><!--InAppBrowser Plugin to UN warming page-->
+    <ion-button (click)="performBrowser3()"class="button3">IPCC</ion-button><!--InAppBrowser Plugin to IPCC warming page-->
+  </ion-card>
+</ion-content>

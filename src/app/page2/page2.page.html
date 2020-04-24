@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" color="warning">{{favouritecity}} City Weather</ion-title> <!--Displays favourite City-->
+    <ion-buttons slot="start"><!--Back button-->
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2>Welcome back {{firstname}}!</h2> <!--Displays first name if you submitted a form-->
+  <h4>The weather of {{favouritecity}} is:</h4> <!--Displays favourite city-->
+
+  <!--API that always displays your saved favourite city (not working)-->
+  <div>
+    <ion-row>
+      <ion-col>
+        <img src="{{weatherObject.image}}" height="200" width="200"> 
+      </ion-col>
+
+      <ion-col>
+        <h1>{{weatherObject.cityname}}, {{weatherObject.countryID}} </h1> 
+        <h1>{{weatherObject.temperature}}°C</h1>
+         <h3> Feels like: {{weatherObject.feelslike}}°C</h3>
+        <div *ngFor="let data of WeatherData">
+          <h3> {{data.description}}</h3>
+        </div>
+        <h3> Wind speeds: {{weatherObject.windspeed}} km/h</h3>  
+      </ion-col>
+
+    </ion-row>
+  </div>
+</ion-content>
